@@ -92,14 +92,19 @@ export default {
             phone: yup
                 .string()
                 .matches(
-                    /((09|03|07|08|05)+([0-9]{8})\b)/g,
+                    /((09|03|07|08|05)+([0-9]{8})\b)/,
                     "Số điện thoại không hợp lệ."
                 ),
         });
         return {
             // Chúng ta sẽ không muốn hiệu chỉnh props, nên tạo biến cục bộ
             // contactLocal để liên kết với các input trên form
-            contactLocal: this.contact,
+            contactLocal: this.contact || {
+                name: "",
+                email: "",
+                address: "",
+                phone: "",
+            }, // Chỉnh sửa lại local contact nếu như null thì tạo mặc định các trường là rỗng
             contactFormSchema,
         };
     },

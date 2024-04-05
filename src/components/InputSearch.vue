@@ -1,11 +1,12 @@
 <template>
     <div class="input-group">
+        <!--@input: Khi người dùng nhập vào input -->
         <input
             type="text"
             class="form-control"
             placeholder="Nhập thông tin cần tìm"
             :value="modelValue"
-            @input="updateModelValue"
+            @input="updateModelValue" 
             @keyup.enter="submit"
         />
         <div class="input-group-append">
